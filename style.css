@@ -1,0 +1,38 @@
+*, *::before, *::after {
+	padding: 0;
+	margin: 0;
+	-webkit-tap-highlight-color: transparent;
+}
+
+
+.container-main {
+	display: flex;
+	background-color: #414141;
+	justify-items: center;
+	height: 100vh;
+	align-items: center;
+}
+
+.list-main {
+	list-style: none;
+	width: 100%;
+}
+
+.link-btn {
+	display: block;
+	width: 100%;
+	padding: 10px 0;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	transition: background-color 0.2s;
+}
+
+.link-btn:hover {
+	background-color: #505050;
+}
+
+.link-btn:active {
+	background-color: #595959;
+}
