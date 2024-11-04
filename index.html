@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ua">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +9,32 @@
 <body>
 
 <div class="container container-main">
-	<ul class="list-main">
-		<li><a href="#!" class="link-btn">Протитанкові міни</a></li>
-		<li><a href="#!" class="link-btn">Протипіхотні міни</a></li>
-		<li><a href="#!" class="link-btn">Міни-пастки</a></li>
-		<li><a href="#!" class="link-btn">Спеціальні міни</a></li>
-		<li><a href="#!" class="link-btn">Об'єктні міни</a></li>
-		<li><a href="#!" class="link-btn">Підривники</a></li>
-		<li><a href="#!" class="link-btn">Суббоєприпаси</a></li>
-		<li><a href="#!" class="link-btn">Авіабомби</a></li>
-	</ul>
+<ul class="list-main">
+	<script>
+		fetch('main-list.json').then(response => {
+			if (!response.ok) {
+				throw new Error('Сталася помилка!!! Зверніться до адміністратора!')
+			}
+			return response.json();
+		})
+		.then(data => {
+			data.forEach(el => 
+			{
+				const link = document.createElement('a');
+				link.textContent = el.title;
+				link.href = '#!';
+
+				const itemList = document.createElement('li');
+				itemList.appendChild(link);
+
+				document.querySelector('.list-main').appendChild(itemList);
+			});
+		})
+		.catch(error => {
+			console.error('Ошибка:', error);
+		});
+	</script>
+</ul>
 </div>
 
 </body>
