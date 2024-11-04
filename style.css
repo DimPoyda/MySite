@@ -20,7 +20,7 @@
 	width: 100%;
 }
 
-.link-btn {
+.list-main li a{
 	display: block;
 	width: 100%;
 	padding: 10px 0;
@@ -34,10 +34,10 @@
 	transition: background-color 0.2s;
 }
 
-.link-btn:hover {
+.list-main li a:hover {
 	background-color: #505050;
 }
 
-.link-btn:active {
+.list-main li a:active {
 	background-color: #595959;
 }
