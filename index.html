@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MySite</title>
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<div class="container container-main">
+<ul class="list-main">
+	<script>
+		fetch('main-list.json').then(response => {
+			if (!response.ok) {
+				throw new Error('Сталася помилка!!! Зверніться до адміністратора!')
+			}
+			return response.json();
+		})
+		.then(data => {
+			data.forEach(el => 
+			{
+				const link = document.createElement('a');
+				link.textContent = el.title;
+				link.href = '#!';
+
+				const itemList = document.createElement('li');
+				itemList.appendChild(link);
+
+				document.querySelector('.list-main').appendChild(itemList);
+			});
+		})
+		.catch(error => {
+			console.error('Ошибка:', error);
+		});
+	</script>
+</ul>
+</div>
+
+</body>
+</html>
